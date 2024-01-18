@@ -1,0 +1,56 @@
+<odoo>
+    <data>
+        <!-- Action for Viewing Customers -->
+        <record id="action_view_customers" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="res_model">your_module_name.customer</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="your_module_name.view_customer_tree"/>
+        </record>
+
+        <!-- Menu for Customers -->
+        <menuitem id="menu_customers" name="Customers" sequence="10"/>
+        <menuitem id="menu_customers_view" name="View Customers" parent="menu_customers" action="action_view_customers"/>
+
+        <!-- Customer Model -->
+        <record id="model_customer" model="ir.model">
+            <field name="name">Customer</field>
+            <field name="model">your_module_name.customer</field>
+            <field name="info">Customer Information</field>
+            <field name="state">manual</field>
+        </record>
+
+        <!-- Customer View - Tree -->
+        <record id="view_customer_tree" model="ir.ui.view">
+            <field name="name">customer.tree</field>
+            <field name="model">your_module_name.customer</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="contact_information"/>
+                    <field name="purchase_history"/>
+                    <field name="loyalty_points"/>
+                    <field name="reward_status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Customer View - Form -->
+        <record id="view_customer_form" model="ir.ui.view">
+            <field name="name">customer.form</field>
+            <field name="model">your_module_name.customer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="name"/>
+                        <field name="contact_information"/>
+                        <field name="purchase_history"/>
+                        <field name="loyalty_points"/>
+                        <field name="reward_status"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>
